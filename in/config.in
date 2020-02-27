@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 100
+simcount 10
 
 # max. simulation time [s]
 simtime 300
@@ -43,8 +43,8 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 # Ignore times are pairs of times [s] in between the solid will be ignored, e.g. 100-200 500-1000.
 #ID	STLfile    material_name    ignore_times
 1	ignored				default
-2	guide_and_cell.STL		PerfectTrap
-3   endcap_of_guide.STL     PerfectTrap
+2	guide_and_cell.STL		perfectTrap
+3   endcap_of_guide.STL     perfectTrap
 4	source.STL			default			10-300
 
 
@@ -85,7 +85,7 @@ PhaseSpaceWeighting	0			# weight initial particle density by available phase spa
 
 ### initial energy range [eV] and spectrum of particles
 Emin 0
-Emax 250e-9
+Emax 200e-9
 spectrum x^2.5 
 
 #Emin 5.5e-9
@@ -139,13 +139,13 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-#4 COMSOL	comsol.txt	1		1		0		1
+4 COMSOL	field_onlyCoils.txt	1		1		0		1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
 #5 Conductor		12500	0		0		-1		0		0		2		1		
 
 #EDMStaticB0GradZField   edmB0xoff edmB0yoff edmB0zoff pol_ang azm_ang edmB0z0 edmdB0z0dz BoundaryWidth xmax 	xmin 	ymax 	ymin 	zmax 	zmin scale
-6 EDMStaticB0GradZField 	0	0	0	0	0	1E-6	3E-9		0.01	3.5	-1	1 	-1	1	-1	1
+#6 EDMStaticB0GradZField 	0	0	0	0	0	1E-6	3E-9		0.01	3.5	-1	1 	-1	1	-1	1
 #EDMStaticEField          MagnitudeAlongX (V/m)    MagnitudeAlongY (V/m)   MagnitudeAlongZ (V/m)	scale
 #7 EDMStaticEField			0			0			1E6		1
 #HarmonicExpandedBField     edmB0xoff   edmB0yoff   edmB0zoff   BoundaryWidth   xmax 	xmin 	ymax 	ymin 	zmax 	zmin    scale   axis_x  axis_y  axis_z  angle   G(0,-1) G(0,0)  G(0,1)  G(1,-2) G(1,-1) G(1,0)  G(1,1)  G(1,2)  G(2,-3) G(2,-2) G(2,-1) G(2,0)  G(2,1)  G(2,2)  G(2,3)  G(3,-4) G(3,-3) G(3,-2) G(3,-1) G(3,0)  G(3,1)  G(3,2)  G(3,3)  G(3,4)

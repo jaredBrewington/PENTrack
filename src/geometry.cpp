@@ -13,9 +13,10 @@ std::istream& operator>>(std::istream &str, material &mat){
 		throw std::runtime_error((boost::format("Could not read material %s!") % mat.name).str());
 	if (mat.DiffProb < 0 or mat.DiffProb > 1)
 	    throw std::range_error("You set a diffuse-reflection probability outside range 0..1 for material " + mat.name +"!");
-    if (mat.SpinflipProb < 0 or mat.SpinflipProb > 1)
+    if (mat.SpinflipProb < 0 or mat.SpinflipProb > 1){
         throw std::range_error("You set a spin-flip probability outside range 0..1 for material " + mat.name +"!");
-    str >> mat.InternalBField;
+	}
+	str >> mat.InternalBField;
     if (!str){
         std::cout << "No internal magnetic field set for material " << mat.name << ". Assuming 0T.\n";
         mat.InternalBField = 0.;
@@ -25,9 +26,9 @@ std::istream& operator>>(std::istream &str, material &mat){
 		std::cout << "No modified-Lambert reflection set for material " << mat.name << ". Assuming 0.\n";
 	    mat.ModifiedLambertProb = 0.;
 	}
-    if (mat.SpinflipProb < 0 or mat.SpinflipProb > 1)
+    if (mat.SpinflipProb < 0 or mat.SpinflipProb > 1){
         throw std::range_error("You set a modified-Lambert probability outside range 0..1 for material " + mat.name +"!");
-
+	}
 	str >> mat.LossPerBounce;
 	if (not str){
 	    std::cout << "No loss per bounce set for material " << mat.name << ". Assuming 0.\n";
