@@ -17,6 +17,7 @@ PENTrack
 
 # ignore output files
 *.out
+!analysis/*.out
 *.root
 doc/
 

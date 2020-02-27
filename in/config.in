@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 10
+simcount 50
 
 # max. simulation time [s]
 simtime 300
@@ -78,7 +78,7 @@ STLfile		source.STL	# STL volume used for STLvolume/STLsurface source, path is a
 ###
 
 particle	neutron		# type of particle the source should create
-ActiveTime	10			# time source is active for
+ActiveTime	0			# time source is active for
 
 Enormal		0					# give particles an energy boost normal to surface (surface sources only! see above)
 PhaseSpaceWeighting	0			# weight initial particle density by available phase space (volume source only! see above)
@@ -139,7 +139,7 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-4 COMSOL	field_onlyCoils.txt	1		1		0		1
+4 COMSOL	magField_B0andTransport.txt	1		1		1		1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
 #5 Conductor		12500	0		0		-1		0		0		2		1		
