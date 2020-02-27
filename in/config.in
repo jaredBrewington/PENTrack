@@ -43,9 +43,9 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 # Ignore times are pairs of times [s] in between the solid will be ignored, e.g. 100-200 500-1000.
 #ID	STLfile    material_name    ignore_times
 1	ignored				default
-2	guide_and_cell.stl		PerfectTrap
-3   endcap_of_guide.stl     PerfectTrap
-4	source.stl			default			10-300
+2	guide_and_cell.STL		PerfectTrap
+3   endcap_of_guide.STL     PerfectTrap
+4	source.STL			default			10-300
 
 
 
@@ -67,7 +67,7 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 
 sourcemode	STLvolume
 
-STLfile		source.stl	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
+STLfile		source.STL	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
 
 ### parameter ranges for sourcemode cylvolume/cylsurface/boxvolume
 #			r_min	r_max	phi_min	phi_max	z_min	z_max (cylvolume/cylsurface)
