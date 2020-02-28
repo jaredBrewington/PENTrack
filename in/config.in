@@ -43,9 +43,10 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 # Ignore times are pairs of times [s] in between the solid will be ignored, e.g. 100-200 500-1000.
 #ID	STLfile    material_name    ignore_times
 1	ignored				default
-2	guide_and_cell.STL		perfectTrap
-3   endcap_of_guide.STL     perfectTrap
-4	source.STL			default			10-300
+2	guide_and_cell.STL		perfectTrap 100-200
+3   endcap_of_guide.STL     perfectTrap 100-200
+4	source.STL			default			
+5   closed_cell.STL     perfectTrap     0-100 200-300
 
 
 
