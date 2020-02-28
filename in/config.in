@@ -108,7 +108,7 @@ theta_v_max 180	# max. polar angle of velocity [degree]
 theta_v sin(x)	# differential initial distribution of polar angle of velocity
 
 
-polarization -1	# initial polarization is randomly chosen, weighted by this variable (1: low-field-seekers only, -1: high-field-seekers only) [-1..1]
+polarization -.9999	# initial polarization is randomly chosen, weighted by this variable (1: low-field-seekers only, -1: high-field-seekers only) [-1..1]
 
 
 [FIELDS]
