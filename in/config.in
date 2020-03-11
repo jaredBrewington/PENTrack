@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 10
+simcount 100
 
 # max. simulation time [s]
 simtime 300
@@ -109,7 +109,7 @@ theta_v_max 180	# max. polar angle of velocity [degree]
 theta_v sin(x)	# differential initial distribution of polar angle of velocity
 
 
-polarization -1	# initial polarization is randomly chosen, weighted by this variable (1: low-field-seekers only, -1: high-field-seekers only) [-1..1]
+polarization -.9999	# initial polarization is randomly chosen, weighted by this variable (1: low-field-seekers only, -1: high-field-seekers only) [-1..1]
 
 
 [FIELDS]
