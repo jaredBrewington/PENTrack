@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 200
+simcount 1000
 
 # max. simulation time [s]
 simtime 20
@@ -86,8 +86,8 @@ PhaseSpaceWeighting	0			# weight initial particle density by available phase spa
 
 ### initial energy range [eV] and spectrum of particles
 Emin 0
-Emax 150e-9
-spectrum x^2.5 
+Emax 140e-9
+spectrum x
 
 #Emin 5.5e-9
 #Emax 85e-9
@@ -140,7 +140,8 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-4 COMSOL	magField_B0andTransport.txt	1		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
+4 COMSOL	mag_field_trans_and_B0.txt	1		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
+#5 COMSOL    background_mag_field_30microT_alongZ.txt 1 0 1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
 #5 Conductor		12500	0		0		-1		0		0		2		1		
@@ -166,7 +167,7 @@ tracklog 0			# print complete trajectory to file [0/1]
 trackloginterval 5e-3	# min. distance interval [m] between track points in tracklog file
 hitlog 0			# print geometry hits to file [0/1]
 snapshotlog 1		# print initial state and state at certain times to file [0/1]
-snapshots 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+snapshots 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.   2.1  2.2  2.3  2.4  2.5  2.6  2.7 2.8  2.9  3.   3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.   4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.   5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9  6.   6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9  7.   7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9  8.   8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9  9.   9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9 10.  10.1 10.2 10.3 10.4 10.5 10.6 10.7 10.8 10.9 11.  11.1 11.2 11.3 11.4 11.5 11.6 11.7 11.8 11.9 12.  12.1 12.2 12.3 12.4 12.5 12.6 12.7 12.8 12.9 13.  13.1 13.2 13.3 13.4 13.5 13.6 13.7 13.8 13.9 14.  14.1 14.2 14.3 14.4 14.5 14.6 14.7 14.8 14.9 15.  15.1 15.2 15.3 15.4 15.5 15.6 15.7 15.8 15.9 16.  16.1 16.2 16.3 16.4 16.5 16.6 16.7 16.8 16.9 17.  17.1 17.2 17.3 17.4 17.5 17.6 17.7 17.8 17.9 18.  18.1 18.2 18.3 18.4 18.5 18.6 18.7 18.8 18.9 19.  19.1 19.2 19.3 19.4 19.5 19.6 19.7 19.8 19.9 20.
 #snapshots 0 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 # times [s] at which to take snapshots
 
 spinlog 1			# print spin trajectory to file [0/1]
@@ -174,7 +175,7 @@ spinloginterval 1e0   # min. time interval [s] between track points in spinlog f
 spintimes	0 1000	# do spin tracking between these points in time [s]
 Bmax 0.1			# do spin tracking when absolute magnetic field is below this value [T]
 flipspin 0			# do Monte Carlo spin flips when magnetic field surpasses Bmax [0/1]
-interpolatefields 0	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
+interpolatefields 1	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
 
 
 ############# set options for individual particle types, overwrites above settings ###############

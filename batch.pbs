@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -S /bin/bash
+#PBS -l pmem=1gb
+#PBS -l procs=1
+#PBS -l walltime=1:30:00
+#PBS -t 1-10 
+#PBS -N SampleRun
+#PBS -e /home/jared-pc/my_PENTrack/out/error.txt 
+#PBS -o /home/jared-pc/my_PENTrack/out/output.txt
+#### For getting emails: PBS -M yourName@email.com #for receiving emails when certain tasks are complete (specified by PBS -m option): #PBS -m be #emails when the job is aborted(a),begins execution(b), is terminate(e)
+
+# Script testing out running multiple instances of a program
+cd $PBS_O_WORKDIR
+echo "Current working directory is `pwd`"
+echo $PBS_JOBNAME
+echo "Starting run at: `date`"
+./PENTrack $PBS_ARRAYID "./in" "./out"
+#also put log files .o / .e in a subfolder in same output folder
+echo "Program diffuse finished with exit code $? at: `date`"
+
