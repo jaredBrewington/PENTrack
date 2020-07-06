@@ -1,0 +1,17 @@
+[MATERIALS]
+############### Define material properties for UCN #############
+# imaginary Fermi potential, diffuse reflectivity, spin flip probability, micro-roughness parameters, enable micro-roughness reflection, internal magnetic field
+# Diffuse reflection is either modeled with a Lambert model (scattering angle cosine-distributed around surface normal),
+#  a modified Lambert model (scattering angle cosine-distributed around specular-scattering vector), or the Micro Roughness model.
+# To activate either Lambert model, set the (modified) Lambert-reflection probability. To activate micro roughness, set RMSroughness and CorrelationLength.
+# See https://doi.org/10.1080/10448639208218770 and https://www.ncnr.nist.gov/resources/n-lengths/
+# For more information on diffuse reflection see https://doi.org/10.1007/BF01380066 and https://doi.org/10.1140/epja/i2010-10926-x
+#
+# When a neutron hits a surface, the code randomly chooses to flip its spin based on the given spin flip probability.
+# Then it calculates the potential difference between the previous and the new material, taking into account the spin polarization and internal magnetic fields.
+# Based on the potential difference and the diffuse-reflection parameters it chooses if the neutron should be transmitted or reflected specularly or diffusely.
+#
+#name		FermiReal [neV]		FermiImag [neV]		LambertProbability [0..1]	SpinflipProbability [0..1]	RMSroughness [m]	CorrelationLength [m]   InternalMagneticField [T]	ModifiedLambertProbability [0..1]   LossPerBounce [0..1]
+default		0			0			0				0	0	0	0	0   0
+perfectTrap 1000        0           .1               0   0   0   0   0   0
+absorber    0           1000        0               0   0   0   0   0   0

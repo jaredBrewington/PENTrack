@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 1000
+simcount 200
 
 # max. simulation time [s]
 simtime 20
@@ -20,7 +20,7 @@ secondaries 0
 
 #cut through B-field (simtype == 4) (x1 y1 z1  x2 y2 z2  x3 y3 z3 num1 num2)
 #define cut plane by three points and number of sample points in direction 1->2/1->3
-BCutPlane	0 0 0	3.0 0 0	0 0 0.3	300	100
+BCutPlane	-0.3 0 0	3.0 0 0 	-0.3 0 0.3 	300	100
 
 #parameters to be used for generating a 2d histogram for the mr diffuse reflection probability into a solid angle 
 #Param order: Fermi pot. [neV], Neut energy [neV], RMS roughness [nm], correlation length [nm], theta_i [0..pi/2]
@@ -87,7 +87,7 @@ PhaseSpaceWeighting	0			# weight initial particle density by available phase spa
 ### initial energy range [eV] and spectrum of particles
 Emin 0
 Emax 140e-9
-spectrum x
+spectrum 2*x
 
 #Emin 5.5e-9
 #Emax 85e-9
@@ -140,8 +140,8 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-4 COMSOL	mag_field_trans_and_B0.txt	1		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
-#5 COMSOL    background_mag_field_30microT_alongZ.txt 1 0 1
+4 COMSOL	magFieldForInterp_update.txt	2.0		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
+#5 COMSOL    background_mag_field_30microT_alongZ.txt .5 0 1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
 #5 Conductor		12500	0		0		-1		0		0		2		1		
@@ -171,11 +171,11 @@ snapshots 0.   0.1  0.2  0.3  0.4  0.5  0.6  0.7  0.8  0.9  1.   1.1  1.2  1.3  
 #snapshots 0 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 # times [s] at which to take snapshots
 
 spinlog 1			# print spin trajectory to file [0/1]
-spinloginterval 1e0   # min. time interval [s] between track points in spinlog file
+spinloginterval 1e-2   # min. time interval [s] between track points in spinlog file
 spintimes	0 1000	# do spin tracking between these points in time [s]
 Bmax 0.1			# do spin tracking when absolute magnetic field is below this value [T]
 flipspin 0			# do Monte Carlo spin flips when magnetic field surpasses Bmax [0/1]
-interpolatefields 1	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
+interpolatefields 0	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
 
 
 ############# set options for individual particle types, overwrites above settings ###############
