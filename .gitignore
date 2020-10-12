@@ -30,3 +30,6 @@ doc/
 *.creator.user
 *.files
 *.includes
+
+# ignore large files
+*background_mag_field_30microT_alongX.txt
