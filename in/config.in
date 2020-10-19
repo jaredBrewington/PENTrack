@@ -43,10 +43,10 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 # Ignore times are pairs of times [s] in between the solid will be ignored, e.g. 100-200 500-1000.
 #ID	STLfile    material_name    ignore_times
 1	ignored				default
-2	guide_and_cell.STL		perfectTrap 10-200
-3   endcap_of_guide.STL     perfectTrap 10-200
-4	source.STL			default			
-5   closed_cell.STL     perfectTrap     0-10 200-300
+2	geometry/cell_and_4m_guide.STL		perfectTrap 10-200
+3   geometry/guide_stop_2p75m.STL     perfectTrap 10-200
+4	geometry/source_2p7m.STL			default			
+5   geometry/closed_cell.STL     perfectTrap     0-10 200-300
 
 
 
@@ -68,7 +68,7 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 
 sourcemode	STLvolume
 
-STLfile		source.STL	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
+STLfile		geometry/source_2p7m.STL	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
 
 ### parameter ranges for sourcemode cylvolume/cylsurface/boxvolume
 #			r_min	r_max	phi_min	phi_max	z_min	z_max (cylvolume/cylsurface)
@@ -140,7 +140,7 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-4 COMSOL	magFieldForInterp_update.txt	2.0		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
+4 COMSOL	mag_field/magFieldForInterp_update.txt	2.0		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
 #5 COMSOL    background_mag_field_30microT_alongZ.txt .5 0 1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
