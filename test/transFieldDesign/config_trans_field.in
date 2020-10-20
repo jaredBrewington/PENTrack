@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 200
+simcount 500
 
 # max. simulation time [s]
 simtime 20
