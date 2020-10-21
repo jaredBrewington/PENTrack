@@ -7,7 +7,7 @@
 simtype 1
 
 # number of primary particles to be simulated
-simcount 500
+simcount 100
 
 # max. simulation time [s]
 simtime 20
@@ -43,10 +43,8 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 # Ignore times are pairs of times [s] in between the solid will be ignored, e.g. 100-200 500-1000.
 #ID	STLfile    material_name    ignore_times
 1	ignored				default
-2	geometry/cell_and_4m_guide.STL		perfectTrap 10-200
-3   geometry/guide_stop_2m.STL     perfectTrap 10-200
-4	geometry/source_1p95m.STL			default			
-5   geometry/closed_cell.STL     perfectTrap     0-10 200-300
+2	geometry/Guide.STL		perfectTrap 
+3   geometry/Absorber.STL     absorber 0-15
 
 
 
@@ -68,7 +66,7 @@ MRThetaIEnergy 54 2.5E-9 20E-9 0 1.570796327 0 1000
 
 sourcemode	STLvolume
 
-STLfile		geometry/source_1p95m.STL	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
+STLfile		geometry/Source.STL	# STL volume used for STLvolume/STLsurface source, path is assumed relative to this config file
 
 ### parameter ranges for sourcemode cylvolume/cylsurface/boxvolume
 #			r_min	r_max	phi_min	phi_max	z_min	z_max (cylvolume/cylsurface)
@@ -140,7 +138,7 @@ polarization -1	# initial polarization is randomly chosen, weighted by this vari
 
 #3Dfield 	table-file	BFieldScale	EFieldScale	BoundaryWidth	CoordinateScale
 #3 OPERA3D	3Dtable.tab	1		1		0		1
-4 COMSOL	mag_field/magFieldForInterp_update.txt	1.0		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
+4 COMSOL	perfTransField_0.txt	1.0		0		1	   # these are parameters for comsol: fieldtype >> filename >> Bscale >> BoundaryWidth >> lengthconv;
 #5 COMSOL    background_mag_field_30microT_alongZ.txt .5 0 1
 
 #FiniteWire		I		x1		y1		z1		x2		y2		z2		scale
@@ -175,7 +173,7 @@ spinloginterval 1e-2   # min. time interval [s] between track points in spinlog 
 spintimes	0 1000	# do spin tracking between these points in time [s]
 Bmax 0.1			# do spin tracking when absolute magnetic field is below this value [T]
 flipspin 0			# do Monte Carlo spin flips when magnetic field surpasses Bmax [0/1]
-interpolatefields 0	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
+interpolatefields 1	# Interpolate magnetic and electric fields for spin tracking between trajectory step points [0/1]. This will speed up spin tracking in high magnetic fields, but might break spin tracking in weak, quickly oscillating fields!
 
 
 ############# set options for individual particle types, overwrites above settings ###############
